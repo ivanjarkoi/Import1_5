@@ -17,7 +17,7 @@
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
-                
+
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -29,8 +29,8 @@
                         <Image  >
                             <Image.Source>
                                 <Binding Path="imgt">
-                                  <Binding.TargetNullValue>
-                                     F:\СмолАПО\4курс\Зимняя сессия\МДК01.01\TP09_2018_2D_NBA\Ресурсы\Общие\logo\logo.jpg 
+                                    <Binding.TargetNullValue>
+                                        F:\СмолАПО\4курс\Зимняя сессия\МДК01.01\TP09_2018_2D_NBA\Ресурсы\Общие\logo\logo.jpg
                                     </Binding.TargetNullValue>
                                 </Binding>
                             </Image.Source>
@@ -41,7 +41,8 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Label x:Name="print" Content="Label" HorizontalAlignment="Left" Margin="117,83,0,0" VerticalAlignment="Top" Height="33" Width="105"/>
+        <Label x:Name="print" Content="Label" HorizontalAlignment="Left" Margin="42,38,0,0" VerticalAlignment="Top" Height="130" Width="264"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="267,173,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
 
     </Grid>
 </Window>

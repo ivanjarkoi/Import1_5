@@ -26,7 +26,8 @@ namespace Image
         { 
             
             InitializeComponent();
-     Import();
+            // Import();
+            //.OrderBy(x=> x.Id).Skip(1).Take(3)
             listViev.ItemsSource = netuEntities3.Got().Image3.ToList();
             
         }
@@ -61,8 +62,9 @@ namespace Image
         }
         void Import()
         {
+            string path =@"F:\СмолАПО\4курс\Зимняя сессия\МДК01.01\TP09_2018_2D_NBA\Ресурсы\Сессия 1\data\Teams";
             var fileData = File.ReadAllLines(@"F:\СмолАПО\4курс\Зимняя сессия\МДК01.01\Точтосделал\Team3.txt");
-            var image = Directory.GetFiles(@"F:\СмолАПО\4курс\Зимняя сессия\МДК01.01\TP09_2018_2D_NBA\Ресурсы\Сессия 1\data\Teams");
+            var image = Directory.GetFiles(path);
 
             foreach (var line in fileData)
             {
@@ -77,21 +79,15 @@ namespace Image
 
 
                         };*/
-                foreach (var a in image)
-                {
-                    print.Content += a + " ";
-                }
-                foreach (var touch  in dan[0].Replace("\"","").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries)   )
-                {
-                    //     var currentType = netuEntities3.Got().Image3.ToList().FirstOrDefault(p => p.Id == Convert.ToInt32(touch));
-                    //   netuEntities3.Got().Image3.Add(currentType);
-              //      print.Content = $"{touch} {touch.ToString()}";
-                    netuEntities3.Got().Image3.Add(new Image3{imgt = File.ReadAllBytes(image.FirstOrDefault(p=> p.Contains((touch.Length==1 ?  "0":"")+touch.ToString())))});
-                }
+             
+             
+                    netuEntities3.Got().Image3.Add(new Image3{imgt = File.ReadAllBytes(image.First(p=>  p ==(path+@"\"+ dan[0].ToString()+".jpg")))});
+               
         //      netuEntities3.Got().Image3.Add(tempTour);
 
                 netuEntities3.Got().SaveChanges();
             }
+           
         }
         private void add2_Click(object sender, RoutedEventArgs e)
         {
@@ -105,6 +101,12 @@ namespace Image
         netuEntities3.Got().Image3.Add(new Image3 { imgt = img });
             netuEntities3.Got().SaveChanges();
           //  MessageBox.Show(img.ToString());
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Import();
+            listViev.ItemsSource = netuEntities3.Got().Image3.ToList();
         }
     }
 }
