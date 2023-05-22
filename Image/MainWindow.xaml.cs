@@ -76,7 +76,7 @@ namespace Image
 
                           imgt= Encoding.UTF8.GetBytes(dan[0])
 
-
+                
 
                         };*/
              
